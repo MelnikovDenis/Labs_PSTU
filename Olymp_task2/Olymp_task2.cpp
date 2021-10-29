@@ -5,13 +5,14 @@ int main()
 {
     setlocale(LC_ALL, "ru");
     int num, attempts;
-    srand(time(NULL));
+    srand(time(NULL)); 
     int randomNum = rand() % 100 + 1;
+
     int count = 0;
     bool flag = true;   
     cout << "Введите кол-во попыток: ";
     cin >> attempts;   
-    do
+    while (flag)
     {       
         cout << "Введите число от 1 до 99: ";
         cin >> num;
@@ -22,10 +23,10 @@ int main()
             flag = false;
         }
         count++;
-        if (count == attempts) {
-            cout << "Вы не справились!\n";
+        if ((flag) && (count == attempts)) {
+            cout << "Вы не справились, загаданное число: " << randomNum << '\n';
             flag = false;
         }
-    } while (flag);
+    } 
     return 0;
 }
